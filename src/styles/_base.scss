@@ -1,0 +1,10 @@
+// -- >> Variables
+
+
+
+// -- >> Mixins
+@mixin centerBoth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
