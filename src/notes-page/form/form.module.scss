@@ -2,11 +2,16 @@
 
 
 .form {
+    margin-top: 20px;
+
     border: 1px solid lightblue;
     border-radius: 20px;
 
     box-shadow: $shadow;
     background-color: $bgColor;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .note_card {

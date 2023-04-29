@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { ListContext } from '../../context/list_context'
 
+// react form hook
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
-import { set, z } from "zod"
+import { z } from "zod"
 
 import styles from './form.module.scss'
 
 const Form = () => {
 
-    const [noteObject, setNoteObject] = useState()
-    const [notesList, setNotesList] = useState([])
+    const { notesList, saveList, setSelectedNote } = useContext(ListContext)
 
     const validationSchema = z.object({
         title: z.string(),
@@ -19,25 +20,24 @@ const Form = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: zodResolver(validationSchema) })
 
     const onSave = (formValues) => {
-        console.log('title: ', formValues?.title || formValues.note.slice(0, 15))
-        console.log('note: ', formValues.note)
 
         const newNote = {
             title: formValues?.title || formValues.note.slice(0, 15),
             note: formValues.note
         }
 
-        setNotesList([...notesList, newNote])
+        saveList([...notesList, newNote])
 
-        console.log('note list: ', notesList)
 
         reset()
     }
 
-    return (
-        <>
+    const handleSelectNote = (note) => setSelectedNote(note)
 
-            {notesList?.length > 0 ?
+    return (
+        <div>
+
+            {notesList?.length > 0 &&
 
                 <div className={`${styles.notesList} w-full max-w-sm`}>
                     {/* <p>some note</p> */}
@@ -45,7 +45,9 @@ const Form = () => {
                     {notesList.map(item => {
                         return (
 
-                            <div className={styles.note_card}>
+                            <div className={styles.note_card}
+                                onClick={() => handleSelectNote(item)}
+                            >
                                 <p>
                                     {item.title}
                                 </p>
@@ -54,7 +56,6 @@ const Form = () => {
                     })}
 
                 </div>
-                : <>{console.log('here is what is: ', notesList.length)}</>
 
             }
             <form className={`w-full max-w-sm ${styles.form} p-10`}>
@@ -96,7 +97,7 @@ const Form = () => {
                     {/* </div > */}
                 </div >
             </form >
-        </>
+        </div>
     )
 }
 
