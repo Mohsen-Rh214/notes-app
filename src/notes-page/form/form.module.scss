@@ -1,0 +1,27 @@
+@import '../../styles';
+
+
+.form {
+    border: 1px solid lightblue;
+    border-radius: 20px;
+
+    box-shadow: $shadow;
+    background-color: $bgColor;
+}
+
+.note_card {
+    box-shadow: $card-shadow;
+    border-radius: 10px;
+
+    padding: 15px;
+    margin-bottom: 7px;
+    background-color: $tailwind-purple-500;
+
+    color: rgb(30, 30, 30);
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $tailwind-purple-400;
+    }
+}

@@ -1,10 +1,5 @@
 @import '../styles';
 
-$shadow: 0 7px 15px 4px rgba(45, 45, 70, 0.2);
-$bgColor: rgba(215, 215, 255, 0.1);
-
-$card-shadow: 0 3px 7px 4px rgba(145, 145, 170, 0.1);
-
 .ntoes_page {
     height: 100vh;
     width: 100vw;
@@ -14,26 +9,10 @@ $card-shadow: 0 3px 7px 4px rgba(145, 145, 170, 0.1);
     justify-content: space-evenly;
 }
 
-.form {
-    border: 1px solid lightblue;
-    border-radius: 20px;
-
-    box-shadow: $shadow;
-    background-color: $bgColor;
-}
 
 .header {
     letter-spacing: 10px;
     text-transform: uppercase;
     font-size: 35px;
     text-shadow: 4px 4px rgba(45, 45, 70, 0.2);
-}
-
-.note_card {
-    box-shadow: $card-shadow;
-    border-radius: 10px;
-
-    padding: 15px;
-    margin-bottom: 7px;
-    background-color: plum;
 }
