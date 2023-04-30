@@ -2,13 +2,20 @@
 
 .notes_page {
     min-height: 100vh;
-    width: 90vw;
+
+    @media (min-width: 1200px) {
+        width: 90vw;
+        padding: 40px;
+    }
+
+    width: 100vw;
+
+    padding: 15px;
 
     @include centerBoth;
     flex-direction: column;
     justify-content: space-evenly;
 
-    padding: 40px;
 }
 
 
@@ -22,22 +29,42 @@
 .section_body {
     @include centerBoth;
 
-    display: grid;
-    grid-template-columns: 30% auto;
+    @media (min-width: 1200px) {
+
+        display: grid;
+        grid-template-columns: 30% auto;
+        gap: 40px;
+        padding: 0 20px;
+
+    }
+
+    display: flex;
+    flex-direction: column-reverse;
     gap: 40px;
-    padding: 0 20px;
+    margin-top: 40px;
 }
 
 .welcome,
 .note {
-    width: 53vw;
+
+    @media (min-width: 1200px) {
+        width: 53vw;
+    }
+
+    width: 95vw;
     align-self: flex-start;
     padding: 20px;
+
+    text-align: justify;
 }
 
 .note {
     border-radius: 15px;
     border: 1px solid $tailwind-purple-500;
 
-    min-height: 40vh;
+    @media (min-width: 1200px) {
+        min-height: 40vh;
+    }
+
+    min-height: 20vh;
 }

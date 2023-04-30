@@ -1,6 +1,7 @@
 @import '../../styles';
 
 .note_card {
+
     box-shadow: $card-shadow;
     border-radius: 10px;
 
@@ -43,6 +44,11 @@
         }
 
         transition: all 0.4s;
+    }
+
+
+    @media (max-width: 1200px) {
+        width: 95vw;
     }
 
 }

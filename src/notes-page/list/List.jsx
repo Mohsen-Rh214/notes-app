@@ -23,7 +23,7 @@ const List = () => {
         <>
             {notesList?.length > 0 &&
 
-                <div className={`${styles.notesList} w-full max-w-sm`}>
+                <div className={`w-full`}>
                     {/* <p>some note</p> */}
 
                     {notesList.map(item => {

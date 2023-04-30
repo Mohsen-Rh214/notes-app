@@ -37,11 +37,11 @@ const Form = () => {
 
 
     return (
-        <div>
+        <div className={styles.form_list}>
 
             <List />
 
-            <form className={`w-full max-w-sm ${styles.form} p-10`}>
+            <form className={`w-full ${styles.form} p-10`}>
 
                 <div className="md:flex md:items-center mb-6">
 

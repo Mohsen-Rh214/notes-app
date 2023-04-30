@@ -12,4 +12,14 @@
 
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 1200px) {
+        width: 95vw;
+    }
+
+}
+
+.form_list {
+    @include centerBoth;
+    flex-direction: column;
 }
