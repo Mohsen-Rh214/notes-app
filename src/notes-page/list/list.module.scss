@@ -1,0 +1,48 @@
+@import '../../styles';
+
+.note_card {
+    box-shadow: $card-shadow;
+    border-radius: 10px;
+
+    padding: 15px;
+    margin-bottom: 7px;
+    background-color: $tailwind-purple-500;
+
+    color: rgb(30, 30, 30);
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: $tailwind-purple-400;
+
+        span {
+            opacity: 1;
+        }
+    }
+
+
+    span {
+        // background-color: blue;
+        width: 25px;
+        height: 25px;
+
+        padding: 6px;
+
+        border-radius: 5px;
+
+
+        @include centerBoth;
+
+        opacity: 0;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        transition: all 0.4s;
+    }
+
+}

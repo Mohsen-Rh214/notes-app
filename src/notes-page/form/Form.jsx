@@ -7,10 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 
 import styles from './form.module.scss'
+import List from '../list/List'
 
 const Form = () => {
 
-    const { notesList, saveList, setSelectedNote } = useContext(ListContext)
+    const { notesList, saveList } = useContext(ListContext)
 
     const validationSchema = z.object({
         title: z.string(),
@@ -21,43 +22,25 @@ const Form = () => {
 
     const onSave = (formValues) => {
 
+        const id = Math.ceil(Math.random() * 1000)
+
         const newNote = {
+            id,
             title: formValues?.title || formValues.note.slice(0, 15),
-            note: formValues.note
+            note: formValues.note,
         }
 
         saveList([...notesList, newNote])
 
-
         reset()
     }
 
-    const handleSelectNote = (note) => setSelectedNote(note)
 
     return (
         <div>
 
-            {notesList?.length > 0 &&
+            <List />
 
-                <div className={`${styles.notesList} w-full max-w-sm`}>
-                    {/* <p>some note</p> */}
-
-                    {notesList.map(item => {
-                        return (
-
-                            <div className={styles.note_card}
-                                onClick={() => handleSelectNote(item)}
-                            >
-                                <p>
-                                    {item.title}
-                                </p>
-                            </div>
-                        )
-                    })}
-
-                </div>
-
-            }
             <form className={`w-full max-w-sm ${styles.form} p-10`}>
 
                 <div className="md:flex md:items-center mb-6">

@@ -13,20 +13,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.note_card {
-    box-shadow: $card-shadow;
-    border-radius: 10px;
-
-    padding: 15px;
-    margin-bottom: 7px;
-    background-color: $tailwind-purple-500;
-
-    color: rgb(30, 30, 30);
-
-    cursor: pointer;
-
-    &:hover {
-        background-color: $tailwind-purple-400;
-    }
-}
